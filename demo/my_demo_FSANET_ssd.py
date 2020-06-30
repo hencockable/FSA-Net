@@ -96,7 +96,7 @@ def draw_results_ssd(img_idx, detected,input_img,faces,ad,img_size,img_w,img_h,m
 
                 input_img[yw1:yw2 + 1, xw1:xw2 + 1, :] = img
 
-    cv2.imshow("result", input_img)
+    #cv2.imshow("result", input_img)
 
     return input_img #,time_network,time_plot
 
@@ -108,11 +108,11 @@ video_path = "../../data/testvid_small.mp4"
 
 
 #%%
-
-try:
-    os.mkdir('/output/video/')
-except OSError:
-    print("Directory output already exists.")
+#
+# try:
+#     os.mkdir('/output/video/')
+# except OSError:
+#     print("Directory output already exists.")
 
 
 #%%
@@ -219,9 +219,9 @@ while True:
     # get video frame
     ret, input_img = cap.read()
 
-    if not ret:
-        cv2.destroyAllWindows()
-        break
+    # if not ret:
+    #     cv2.destroyAllWindows()
+    #     break
 
     img_idx = img_idx + 1
     img_h, img_w, _ = np.shape(input_img)
@@ -259,7 +259,7 @@ while True:
     if detected.shape[2] > detected_pre.shape[2] or img_idx%(skip_frame*3) == 0:
         detected_pre = detected
 
-    key = cv2.waitKey(1)
+    # key = cv2.waitKey(1)
 
 txt_out.write("Runtime: " + str(perf_counter() - start) + "seconds")
 
