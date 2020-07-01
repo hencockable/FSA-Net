@@ -104,7 +104,10 @@ def draw_results_ssd(img_idx, detected,input_img,faces,ad,img_size,img_w,img_h,m
 
 # custom variables
 start = perf_counter()
-video_path = "../../data/testvid_small.mp4"
+video_path = "/storage/local/wct/data/0925_G12_Chemistry_cut.mkv"
+
+if not os.path.exists(video_path):
+    raise Warning("Video does not exist")
 
 
 #%%
@@ -219,9 +222,9 @@ while True:
     # get video frame
     ret, input_img = cap.read()
 
-    # if not ret:
-    #     cv2.destroyAllWindows()
-    #     break
+    if not ret:
+        # cv2.destroyAllWindows()
+        break
 
     img_idx = img_idx + 1
     img_h, img_w, _ = np.shape(input_img)
