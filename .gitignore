@@ -1,6 +1,7 @@
 env
 env2
 demo/img
+demo/output
 __pycache__
 .vscode
 data
